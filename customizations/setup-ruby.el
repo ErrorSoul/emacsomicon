@@ -17,3 +17,15 @@
 (add-to-list
  'color-identifiers:modes-alist
  `(enh-ruby-mode . ("[^.][[:space:]]*" "\\_<\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)" (nil))))
+
+
+;; find current word under cursor on buffer
+
+(defun x-occur ()
+  (interactive)
+  (occur (current-word))
+)
+
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-q") 'x-occur)))

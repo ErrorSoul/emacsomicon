@@ -81,3 +81,14 @@ Version 2016-07-18"
     (cd "~/works/uchiru-login")
     (shell-command (format "rspec %s&" file-name))
     ))
+
+
+(defun x-occur ()
+  (interactive)
+  (occur (current-word))
+)
+
+(defun yyy ()
+  (interactive)
+  (ag-files)
+)

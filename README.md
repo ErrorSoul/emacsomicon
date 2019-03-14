@@ -1,4 +1,4 @@
-"E" - optimisation or
+"E" - optimisation
 
 Red stories for the golden children
 
