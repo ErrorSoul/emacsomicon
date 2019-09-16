@@ -92,3 +92,21 @@ Version 2016-07-18"
   (interactive)
   (ag-files)
 )
+
+
+(defun insert_block_code (n)
+  (insert
+     (format  "  %d => {
+       image_url: path_helper('students/guess-fact/questions/%d.png'),
+       preview_url: path_helper('students/guess-fact/questions/%d_preview.png'),
+       question: '',
+       answer: '',
+       question_type: ' ',
+       }, \n   "
+
+ n n n)))
+
+
+(defun qwert ()
+  (interactive)
+  (mapcar 'insert_block_code (number-sequence 31 61)))

@@ -1,6 +1,7 @@
 ;;;;
 ;; Packages
 ;;;;
+;;;; https://stackoverflow.com/questions/6493331/how-to-print-all-the-defined-variables-in-emacs
 
 ;; Define package repositories
 (require 'package)
@@ -170,7 +171,9 @@
    (quote
     ("9e54a6ac0051987b4296e9276eecc5dfb67fdcd620191ee553f40a9b6d943e78" default)))
  '(enh-ruby-add-encoding-comment-on-save nil)
- '(fci-rule-color "#2a2a2a"))
+ '(erlang-indent-level 2)
+ '(fci-rule-color "#2a2a2a")
+ '(indent-tabs-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
