@@ -121,7 +121,7 @@
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
-(add-to-list 'load-path "~/.emacs.d/customizations/yasnippet")
+;;(add-to-list 'load-path "~/.emacs.d/customizations/yasnippet")
 
 
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
@@ -149,6 +149,9 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+(add-to-list 'load-path (expand-file-name "~/emacs.d/customizations/rbenv.el/"))
+(require 'rbenv)
+(global-rbenv-mode)
 
 ;; или только для Ruby-mode
 (load "setup-ruby.el" )
@@ -156,8 +159,8 @@
 ;; Запускаем проверки при открытие файла и после его сохранения
 (setq-default flycheck-check-syntax-automatically '(save mode-enabled))
 
-(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
-(global-auto-complete-mode t)
+;;(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
+;;(global-auto-complete-mode t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -169,11 +172,14 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("9e54a6ac0051987b4296e9276eecc5dfb67fdcd620191ee553f40a9b6d943e78" default)))
+    ("816bacf37139d6204b761fea0d25f7f2f43b94affa14aa4598bce46157c160c2" "9e54a6ac0051987b4296e9276eecc5dfb67fdcd620191ee553f40a9b6d943e78" default)))
  '(enh-ruby-add-encoding-comment-on-save nil)
  '(erlang-indent-level 2)
  '(fci-rule-color "#2a2a2a")
- '(indent-tabs-mode t))
+ '(indent-tabs-mode t)
+ '(package-selected-packages
+   (quote
+    (rjsx-mode enh-ruby-mode zenburn-theme tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous highlight-indentation flycheck color-identifiers-mode clojure-mode-extra-font-locking cider ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

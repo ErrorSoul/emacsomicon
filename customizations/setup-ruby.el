@@ -1,6 +1,8 @@
 (add-hook 'enh-ruby-mode-hook #'flycheck-mode)
 (add-hook 'enh-ruby-mode-hook #'auto-complete-mode)
 (add-hook 'enh-ruby-mode-hook #'color-identifiers-mode)
+(add-hook 'enh-ruby-mode-hook '#'rainbow-delimiters-mode)
+
 
 
 ;; highlight intendation

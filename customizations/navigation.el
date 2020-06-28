@@ -62,8 +62,8 @@
 
 
 ;; yasnippet
-(require 'yasnippet)
-(yas-reload-all)
-(add-hook 'enh-ruby-mode-hook #'yas-minor-mode)
-(add-hook 'enh-ruby-mode-hook #'(lambda ()
-                              (yas-activate-extra-mode 'rails-mode)))
+;; (require 'yasnippet)
+;; (yas-reload-all)
+;; (add-hook 'enh-ruby-mode-hook #'yas-minor-mode)
+;; (add-hook 'enh-ruby-mode-hook #'(lambda ()
+;;                               (yas-activate-extra-mode 'rails-mode)))
