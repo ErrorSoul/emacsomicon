@@ -81,6 +81,12 @@
     ;; search
     ag
 
+    ;; rjsx
+    rjsx-mode
+
+    enh-ruby-mode
+
+    zenburn-theme
     ;; git integration
     magit))
 
@@ -121,6 +127,7 @@
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
+
 ;;(add-to-list 'load-path "~/.emacs.d/customizations/yasnippet")
 
 
@@ -149,13 +156,30 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+
+;; или только для Ruby-mode
 (add-to-list 'load-path (expand-file-name "~/emacs.d/customizations/rbenv.el/"))
 (require 'rbenv)
 (global-rbenv-mode)
 
-;; или только для Ruby-mode
+(global-company-mode)
+(require 'company-tabnine)
+(add-to-list 'company-backends #'company-tabnine)
+
 (load "setup-ruby.el" )
 
+
+
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(setq ido-vertical-show-count t)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+
+(eval-after-load 'company-mode
+  '(push 'company-robe company-backends))
+(add-hook 'after-init-hook 'rainbow-delimiters-mode)
 ;; Запускаем проверки при открытие файла и после его сохранения
 (setq-default flycheck-check-syntax-automatically '(save mode-enabled))
 
@@ -179,7 +203,7 @@
  '(indent-tabs-mode t)
  '(package-selected-packages
    (quote
-    (rjsx-mode enh-ruby-mode zenburn-theme tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous highlight-indentation flycheck color-identifiers-mode clojure-mode-extra-font-locking cider ag))))
+    (slim-mode ido-vertical-mode robe company-tabnine company yaml-mode auto-complete rjsx-mode enh-ruby-mode zenburn-theme tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous highlight-indentation flycheck color-identifiers-mode clojure-mode-extra-font-locking cider ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

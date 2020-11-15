@@ -1,8 +1,10 @@
-(add-hook 'enh-ruby-mode-hook #'flycheck-mode)
-(add-hook 'enh-ruby-mode-hook #'auto-complete-mode)
+;;(add-hook 'enh-ruby-mode-hook #'flycheck-mode)
+;;(add-hook 'enh-ruby-mode-hook #'auto-complete-mode)
 (add-hook 'enh-ruby-mode-hook #'color-identifiers-mode)
-(add-hook 'enh-ruby-mode-hook '#'rainbow-delimiters-mode)
-
+(add-hook 'enh-ruby-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'enh-ruby-mode-hook #'robe-mode)
+(eval-after-load 'company-mode
+  '(push 'company-robe company-backends))
 
 
 ;; highlight intendation
