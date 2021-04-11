@@ -1,0 +1,37 @@
+# -*- mode: snippet -*-
+# name: ABtest class
+# key: ABtest
+# --
+
+class ABTests::$1 < ABTests::Generic
+  TASK_LINK     = '$2'.freeze
+  DESCRIPTION   = '$3'.freeze
+  TEST_NAME     = '$4'.freeze
+  TEST_VARIANTS = %w[A B].freeze
+
+  def test_name
+    TEST_NAME
+  end
+
+  private
+
+  def siblings_group
+    student_siblings.map { |student| student.ab_test_groups[test_name] }.compact.uniq.first
+  end
+
+  def student_siblings
+    return [] unless parent.present?
+
+    @student_siblings ||= parent.students.alive.reject { |student| student.id == user.id }
+  end
+
+  def parent
+    @parent ||= user.parent2
+  end
+
+  def can_update?
+    IsSolventStudent.call(user) &&
+      !user.fc2_global? && !user.fc2_team1? &&
+      student_siblings.none? { |student| student.fc2_global? || student.fc2_team1? }
+  end
+end
