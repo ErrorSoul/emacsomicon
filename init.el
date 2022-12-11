@@ -10,7 +10,7 @@
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 ;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -203,7 +203,7 @@
  '(indent-tabs-mode t)
  '(package-selected-packages
    (quote
-    (slim-mode ido-vertical-mode robe company-tabnine company yaml-mode auto-complete rjsx-mode enh-ruby-mode zenburn-theme tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous highlight-indentation flycheck color-identifiers-mode clojure-mode-extra-font-locking cider ag))))
+    (docker-api dockerfile-mode rubocop prettier-js slim-mode ido-vertical-mode robe company-tabnine company yaml-mode auto-complete rjsx-mode enh-ruby-mode zenburn-theme tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous highlight-indentation flycheck color-identifiers-mode clojure-mode-extra-font-locking cider ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -212,3 +212,6 @@
  )
 
 (add-hook 'after-init-hook 'global-color-identifiers-mode)
+(require 'prettier-js)
+(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+(add-hook 'js-mode-hook 'prettier-js-mode)
